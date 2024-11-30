@@ -1,3 +1,5 @@
+#ifndef INPUT_BUFFERING_H
+#define INPUT_BUFFERING_H
 #include <stdio.h>
 #include <stdint.h>
 #include <signal.h>
@@ -17,3 +19,5 @@ void restore_input_buffering();
 void handle_interrupt(int);
 
 uint16_t check_key();
+
+#endif

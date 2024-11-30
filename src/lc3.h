@@ -1,3 +1,6 @@
+#ifndef LC3_H
+#define LC3_H
+
 #include <stdint.h>
 /* Memory */
 #define MEMORY_MAX (1 << 16)
@@ -49,5 +52,20 @@ enum {
     FL_NEG = 1 << 2, /* N */
 };
 
+/* Trap Codes */
+enum
+{
+    TRAP_GETC = 0x20,  /* get character from keyboard, not echoed onto the terminal */
+    TRAP_OUT = 0x21,   /* output a character */
+    TRAP_PUTS = 0x22,  /* output a word string */
+    TRAP_IN = 0x23,    /* get character from keyboard, echoed onto the terminal */
+    TRAP_PUTSP = 0x24, /* output a byte string */
+    TRAP_HALT = 0x25   /* halt the program */
+};
 
+uint16_t sign_extend(uint16_t, int);
+void update_flags(uint16_t);
 
+int running;
+
+#endif
